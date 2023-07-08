@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<article>
+        <h1>NYPD Shooting Incident Data, pre and post pandemic</h1>
+        <p>By parsing the Historic NYPD Shooting Incident Data released on the NYC Open Data Portal, we aimed to observe changes in dynamics for crimes in NYC. Over the years, changes have been made to what is considered criminal activity. Hence, its hard to make an unbaiased statement of whether neighborhood became safer or not.</p>
+        <p>Anyway, we decided to take a bit simpler approach and focused our analysis specifically on shooting incidents. We didn't dive into the types of shootings that occurred but simply focused on their occurrences.</p>
+        <p>To minimize the impact of the pandemic, we excluded the years 2020 and 2021 and instead compared the shooting incident data from 2022 to Q1 of 2023 with the pre-pandemic years of 2018 to 2019.</p>
+        <p>Below are the interactive maps that show the shooting incident data for the respective periods:</p>
+
+        <h3>Shooting Incidents: 2022 - Q1 2023</h3>
+        <iframe src="data/nyc_shooting_2022.html" width="100%" height="400px"></iframe>
+        <p>Feel free to zoom in on the map to see your neighborhood up close.</p>
+
+        <h3>Shooting Incidents: 2018 - 2019</h3>
+        <iframe src="data/nyc_shooting_2018_2019.html" width="100%" height="400px"></iframe>
+        <p>Again, you can zoom in on the map to examine the details in your neighborhood.</p>
+
+        <p>Looking at both maps, we noticed a slight improvement in certain neighborhoods, which interestingly correlates with higher rates of price appreciation compared to the median. However, it's important to note that due to the restrictions we placed on ourselves by excluding the pandemic years, it's harder for us to observe a strong trendline.</p>
+    </article>
+
+    <!-- Include Markdown to HTML Converter Script -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Convert Markdown to HTML
+        var postElements = document.getElementsByTagName('article');
+        for (var i = 0; i < postElements.length; i++) {
+            var post = postElements[i];
+            var markdownContent = post.innerHTML;
+            var htmlContent = marked(markdownContent);
+            post.innerHTML = htmlContent;
+        }
+    </script>
+</body>
+</html>
+
